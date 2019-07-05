@@ -1,0 +1,12 @@
+[submodule "eoos/api"]
+	path = eoos/api
+	url = git@github.com:baigudin/eoos-api.git
+[submodule "eoos/system"]
+	path = eoos/system
+	url = git@github.com:baigudin/eoos-system.git
+[submodule "eoos/library"]
+	path = eoos/library
+	url = git@github.com:baigudin/eoos-library.git
+[submodule "eoos/cpu"]
+	path = eoos/cpu
+	url = git@github.com:baigudin/eoos-cpu-arm-arm926pxp.git
