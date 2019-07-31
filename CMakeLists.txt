@@ -4,12 +4,17 @@
 # @copyright 2019, Sergey Baigudin, Embedded Team
 # @license   http://embedded.team/license/
 
-cmake_minimum_required(VERSION 3.8.2)
-enable_language(CXX)
+cmake_minimum_required(VERSION 3.8)
+project(eoos-arm-arm926pxp-versatile VERSION 1.0.0 LANGUAGES CXX)
 
-project(eoos-arm-arm926pxp-versatile)
-add_executable(${PROJECT_NAME} "")
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_98)
+set(CMAKE_CXX_STANDARD 98)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+if(NOT DEFINED CMAKE_INSTALL_BINDIR)
+  message(STATUS "PROJECT MESSAGE: CMAKE_INSTALL_BINDIR IS NOT DEFINED AND SET TO BIN")
+  set(CMAKE_INSTALL_BINDIR "bin" CACHE PATH "User executables go to the bin directory")
+endif()
 
 add_subdirectory(eoos)
 add_subdirectory(app)
