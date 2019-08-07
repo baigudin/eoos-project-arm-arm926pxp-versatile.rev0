@@ -19,7 +19,10 @@ namespace local
     {
         library::String<char,0> str("Hello, world!");
 	    volatile static bool isRun = true;
-        while( isRun ){}
+        while( isRun )
+        {
+            isRun = false;
+        }
         return 0;
     }
 }

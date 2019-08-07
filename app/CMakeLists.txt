@@ -4,11 +4,11 @@
 # @copyright 2019, Sergey Baigudin, Embedded Team
 # @license   http://embedded.team/license/
 
-enable_language(CXX)
-
 add_executable(app
     ${CMAKE_CURRENT_LIST_DIR}/source/Configuration.cpp
     ${CMAKE_CURRENT_LIST_DIR}/source/Program.cpp
+
+    $<TARGET_OBJECTS:eoos>
 )
 
 target_include_directories(app
@@ -21,7 +21,10 @@ PRIVATE
     eoos
 )
 
-set_target_properties(app PROPERTIES PREFIX "app")
-set_target_properties(app PROPERTIES OUTPUT_NAME "-eoos-arm926pxp-versatile")
-set_target_properties(app PROPERTIES SUFFIX "")
+set(LINKER_SCRIPT ${CMAKE_CURRENT_LIST_DIR}/memory/memory.arm926ej-s.gcc.v7.3.x.ld)
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -T ${LINKER_SCRIPT}")
+
+set_target_properties(app PROPERTIES PREFIX "")
+set_target_properties(app PROPERTIES OUTPUT_NAME "eoos-app-arm926pxp-versatile")
+set_target_properties(app PROPERTIES SUFFIX ".elf")
 install(TARGETS app RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

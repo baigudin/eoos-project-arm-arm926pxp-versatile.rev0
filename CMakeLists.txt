@@ -5,7 +5,7 @@
 # @license   http://embedded.team/license/
 
 cmake_minimum_required(VERSION 3.8)
-project(eoos-arm-arm926pxp-versatile VERSION 1.0.0 LANGUAGES CXX)
+project(eoos-arm-arm926pxp-versatile VERSION 1.0.0 LANGUAGES CXX ASM)
 
 set(CMAKE_CXX_STANDARD 98)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
