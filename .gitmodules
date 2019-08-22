@@ -1,6 +1,3 @@
 [submodule "eoos/system"]
 	path = eoos/system
 	url = git@github.com:baigudin/eoos-system.git
-[submodule "eoos/library"]
-	path = eoos/library
-	url = git@github.com:baigudin/eoos-library.git
