@@ -16,5 +16,4 @@ if(NOT DEFINED CMAKE_INSTALL_BINDIR)
   set(CMAKE_INSTALL_BINDIR "bin" CACHE PATH "User executables go to the bin directory")
 endif()
 
-add_subdirectory(eoos)
-add_subdirectory(app)
+add_subdirectory(codebase)
