@@ -1,6 +1,6 @@
 OUTPUT_FORMAT("elf32-littlearm")
 OUTPUT_ARCH(arm)
-ENTRY(_c_int00)
+ENTRY(_start)
 
 IRQ_STACK_SIZE = 0x2000;
 FIQ_STACK_SIZE = 0x2000;

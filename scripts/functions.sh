@@ -1,56 +1,69 @@
 #!/bin/sh
-#
+
 # This script contains some useful functions.
-#
 
 #
 # Outs a message.
 #
-# Example: outMessage "Hello, World!" "RED"
+# Example 1: outMessage "Hello, World!
+# Example 2: outMessage "Hello, World!" "OK"
+# Example 3: outMessage "Hello, World!" "RED" -blocked
 #
 # @param string $1 - an output string
-# @param enum sting $2 - a color of the string: BLACK, RED, GREEN, ORANGE, BLUE, CYAN, GREY, YELLOW, WHITE, ERROR
+# @param enum sting $2 - a color of the string: BLACK, RED, GREEN, ORANGE, BLUE, CYAN, GREY, YELLOW, WHITE,
+#                        or common information: OK, ERROR, INF
+# @param enum string $3 - a key word about the message style: "-blocked"
 #
 outMessage()
 {
+    if [ "$2" == "-blocked" -o "$3" == "-blocked" ]; then
+        BLOCKED="true"
+    else
+        BLOCKED="false"
+    fi
     SEPARATOR='------------------------------------------------------------------------------'
     # No color for terminating
     NC='\e[0m'
     # Set a color for text
-    if [ "$2" = "BLACK" ]; then     
-        COLOR='\e[0;30m'    
-    elif [ "$2" = "RED" ]; then             
+    if [ "$2" == "BLACK" ]; then
+        COLOR='\e[0;30m'
+    elif [ "$2" == "RED" ]; then
         COLOR='\e[0;31m'
-    elif [ "$2" = "GREEN" ]; then             
+    elif [ "$2" == "GREEN" ]; then
         COLOR='\e[0;32m'
-    elif [ "$2" = "ORANGE" ]; then             
-        COLOR='\e[0;33m'        
-    elif [ "$2" = "BLUE" ]; then             
+    elif [ "$2" == "ORANGE" ]; then
+        COLOR='\e[0;33m'
+    elif [ "$2" == "BLUE" ]; then
         COLOR='\e[0;34m'
-    elif [ "$2" = "PURPLE" ]; then             
+    elif [ "$2" == "PURPLE" ]; then
         COLOR='\e[0;35m'
-    elif [ "$2" = "CYAN" ]; then             
+    elif [ "$2" == "CYAN" ]; then
         COLOR='\e[0;36m'
-    elif [ "$2" = "GRAY" ]; then             
+    elif [ "$2" == "GRAY" ]; then
         COLOR='\e[0;37m'
-    elif [ "$2" = "YELLOW" ]; then             
+    elif [ "$2" == "YELLOW" ]; then
         COLOR='\e[0;93m'
-    elif [ "$2" = "WHITE" ]; then             
+    elif [ "$2" == "WHITE" ]; then
         COLOR='\e[0;97m'
     # Set notifications
-    elif [ "$2" = "OK" ]; then             
+    elif [ "$2" == "OK" ]; then
         COLOR='\e[0;32m'
-    elif [ "$2" = "ERR" ]; then             
+    elif [ "$2" == "ERR" ]; then
         COLOR='\e[0;31m'
-    elif [ "$2" = "INF" ]; then             
-        COLOR='\e[0;93m'		
+    elif [ "$2" == "INF" ]; then
+        COLOR='\e[0;93m'
     # Set no color
     else
         COLOR='\e[0m'
     fi
-    echo -e "${COLOR}$SEPARATOR${NC}"
+    # Print the massage
+    if [ $BLOCKED == "true" ]; then
+        echo -e "${COLOR}$SEPARATOR${NC}"
+    fi
     echo -e "${COLOR}$1${NC}"
-    echo -e "${COLOR}$SEPARATOR${NC}"    
+    if [ $BLOCKED == "true" ]; then
+        echo -e "${COLOR}$SEPARATOR${NC}"
+    fi
 }
 
 #
@@ -83,10 +96,10 @@ waitYesPressed()
         read -p "$1 (Y/N): " VAR
         if [ $VAR == "y" -o $VAR == "Y" ]; then
             RET=1
-            break;            
+            break;
         elif [ $VAR == "n" -o $VAR == "N" ]; then
             RET=0
-            break;            
+            break;
         fi
     done
     return $RET

@@ -24,3 +24,6 @@ set(CMAKE_ASM_FLAGS "${CFLAGS} ${ASM_OPTIONS}" CACHE STRING "" FORCE)
 
 # Set flags for C/C++ sources
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -marm -march=armv5te -mtune=arm926ej-s -Og -g" CACHE STRING "" FORCE)
+
+# Set flags for linker
+set(CMAKE_EXE_LINKER_FLAGS "-nostartfiles" CACHE STRING "" FORCE)
