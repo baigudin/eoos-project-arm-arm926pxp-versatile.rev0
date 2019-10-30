@@ -4,7 +4,7 @@
 # @copyright 2019, Sergey Baigudin, Embedded Team
 # @license   http://embedded.team/license/
 
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.15)
 project(eoos-arm-arm926pxp-versatile VERSION 1.0.0 LANGUAGES CXX ASM)
 
 set(CMAKE_CXX_STANDARD 98)

@@ -7,6 +7,7 @@
  */
 #include "Program.hpp"
 #include "library.String.hpp"
+#include "System.hpp"
 
 namespace local
 {
@@ -17,11 +18,17 @@ namespace local
      */
     int32 Program::start()
     {
-        library::String<char,0> str("Hello, world!");
-	    volatile static bool isRun = true;
-        while( isRun )
+        api::System& system = System::call();
+        int64 time = system.getTime();
+        if(time > 0)
         {
-            isRun = false;
+
+            library::String<char,0> str("Hello, world!");
+	        volatile static bool isRun = true;
+            while( isRun )
+            {
+                isRun = false;
+            }
         }
         return 0;
     }

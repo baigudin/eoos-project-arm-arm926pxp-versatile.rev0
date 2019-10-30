@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# This script does all stuff to setup necessary environment for AP development from scratch using a local host only.
+# This script generates an Eclipse project.
 #
-# @param $1 -rebuild - removes 'build' building directory and fources to rebuild all the project.
+# @param $1 --rebuild - removes 'build' building directory and fources to re-generate the project.
 #
 # SDIR: REPOSITORY/scripts$
 # EDIR: REPOSITORY/scripts$

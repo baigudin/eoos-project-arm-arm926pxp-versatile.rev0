@@ -10,11 +10,11 @@ source ./functions.sh
 
 # CDIR: REPOSITORY/scripts$
 if [ "$1" == "--gdb" ]; then
-    outMessage "DEBUGGING IMAGE ON QEMU..." "INF" -blocked
-    qemu-system-arm -machine versatileab -m 128M -nographic -kernel ./../build/CMakeInstallDir/bin/eoos-app-arm926pxp-versatile.bin -S -gdb tcp::1234
+    outMessage "DEBUGGING PROGRAM ON QEMU..." "INF" -blocked
+    qemu-system-arm -machine versatileab -m 128M -nographic -kernel ./../build/CMakeInstallDir/usr/bin/eoos-app-arm926pxp-versatile.bin -S -gdb tcp::1234
 else
-    outMessage "RUNNING IMAGE ON QEMU..." "INF" -blocked
-    qemu-system-arm -machine versatileab -m 128M -nographic -kernel ./../build/CMakeInstallDir/bin/eoos-app-arm926pxp-versatile.bin
+    outMessage "RUNNING PROGRAM ON QEMU..." "INF" -blocked
+    qemu-system-arm -machine versatileab -m 128M -nographic -kernel ./../build/CMakeInstallDir/usr/bin/eoos-app-arm926pxp-versatile.bin
 fi
 # (qemu) gdbserver
-outMessage "QEMU IMAGE HAS BEEN EXECUTED" "OK" -blocked
+outMessage "PROGRAM HAS BEEN EXECUTED BY QEMU" "OK" -blocked

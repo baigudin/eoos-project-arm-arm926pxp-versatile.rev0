@@ -1,6 +1,6 @@
 #!/bin/sh
-#
-# This script helps to set up all necessary things to develop AUTOSAR Adaptive Platform.
+
+# This script deletes a submodule.
 #
 # SDIR: APD/scripts$
 # EDIR: APD/scripts$
