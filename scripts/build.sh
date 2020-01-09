@@ -11,8 +11,8 @@
 source ./functions.sh
 
 TOOLCHAIN_PREFIX_PATH=/opt/gcc-linaro-7.3.1-2018.05-x86_64_arm-eabi/bin/arm-eabi
-ELF_FILE_PATH=./CMakeInstallDir/usr/bin/eoos-app-arm926pxp-versatile.elf
-BIN_FILE_PATH=./CMakeInstallDir/usr/bin/eoos-app-arm926pxp-versatile.bin
+ELF_FILE_PATH=./CMakeInstallDir/bin/eoos-app-arm926pxp-versatile.elf
+BIN_FILE_PATH=./CMakeInstallDir/bin/eoos-app-arm926pxp-versatile.bin
 
 # CDIR: REPOSITORY/scripts$
 cd ..
@@ -31,12 +31,12 @@ fi
 cd build
 # CDIR: REPOSITORY/build$
 outMessage "CALLING CMAKE..." "INF" -blocked
-cmake .. -DCMAKE_TOOLCHAIN_FILE=./../tools/toolchain-arm926ej-s.cmake -DCMAKE_INSTALL_PREFIX=/usr
+cmake .. -DCMAKE_TOOLCHAIN_FILE=./../tools/toolchain-arm926ej-s.cmake -DCMAKE_INSTALL_PREFIX=CMakeInstallDir
 
 if [ "$2" != "--nomake" ]; then
     outMessage "CALLING MAKE..." "INF" -blocked
-    make DESTDIR=./CMakeInstallDir install
-        # DESTDIR=<dir_path>
+    make install
+        # DESTDIR=./CMakeInstallDir
         # VERBOSE=1
         # -j16
         # install
