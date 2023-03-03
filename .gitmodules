@@ -3,10 +3,10 @@
 	url = git@github.com:baigudin/eoos-api.git
 [submodule "codebase/eoos/system"]
 	path = codebase/eoos/system
-	url = git@github.com:baigudin/eoos-system.git
+	url = git@github.com:baigudin/eoos-system.rev0.git
 [submodule "codebase/eoos/library"]
 	path = codebase/eoos/library
 	url = git@github.com:baigudin/eoos-library.git
 [submodule "codebase/eoos/cpu"]
 	path = codebase/eoos/cpu
-	url = git@github.com:baigudin/eoos-cpu-arm-arm926pxp.git
+	url = git@github.com:baigudin/eoos-cpu-arm-arm926pxp.rev0.git
